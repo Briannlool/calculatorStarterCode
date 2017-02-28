@@ -28,7 +28,7 @@ $(document).ready(function()
 
 	function isOneOperandOperator(n) 
 	{
-  		return n == "SQRT" || n == "log";
+  		return n == "SQRT" || n == "log" || n == "CBRT";
 	}
 
 	function isTwoOperandOperator(n) 
@@ -82,9 +82,16 @@ $(document).ready(function()
 				{
 					answer = logBase10(first_operand);
 					$('#question').prepend("log(");
-					$('#question').append(")");					
+					$('#question').append(")");	
 				}
-
+				else if (operator == "CBRT")	
+				{
+					answer = cube_root(first_operand);
+					$('#question').prepend("CBRT(");
+					$('#question').append(")");
+				}	
+					
+					
 				$('#question').append(" =");
 				$('#answer').append(answer).hide().fadeIn(1000);				
 			}
@@ -125,5 +132,6 @@ $(document).ready(function()
 			}		
 		}
 
+			
 	});
 });
